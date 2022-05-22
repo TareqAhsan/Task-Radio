@@ -1,0 +1,10 @@
+
+.plus,.minus{
+    width: 35px;
+    cursor: pointer;
+
+}
+.player{
+    width :100px;
+    border-radius:50%
+}

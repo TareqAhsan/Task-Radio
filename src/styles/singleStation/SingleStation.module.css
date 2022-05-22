@@ -1,0 +1,13 @@
+.single_Station {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px !important ;
+  color: white;
+  font-weight: 500;
+  font-size: 22px;
+  cursor: pointer;
+}
+.single_Station:hover {
+  background-color: #6b7280;
+}

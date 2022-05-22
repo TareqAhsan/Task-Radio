@@ -1,0 +1,19 @@
+
+.mainheader{
+    /* height:150px; */
+}
+.header{
+    display: flex;
+    color: white;
+    font-weight: 700;
+    font-size: 22px;
+    padding: 18px;
+    align-items: center;
+    background-color: #fbbf24;
+    border-radius: 25px 25px 0 0;
+    justify-content: space-between;
+}
+.header_image{
+    width: 25px;
+    height: 25px;
+}
