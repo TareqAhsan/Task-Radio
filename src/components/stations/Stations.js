@@ -1,9 +1,10 @@
-import React, { useState ,useEffect} from "react";
+import React, { useEffect, useState } from "react";
 import Footer from "../../Layouts/Footer/Footer";
 import Header from "../../Layouts/Header/Header";
+import {Spinner} from 'react-bootstrap'
 import {
   default as card,
-  default as station
+  default as station,
 } from "../../styles/Stations/Stations.module.css";
 import PlayerComponent from "../common/PlayerComponent/PlayerComponent";
 import SingleStation from "../singleStation/SingleStation";
@@ -18,7 +19,7 @@ import SingleStation from "../singleStation/SingleStation";
 const Stations = () => {
   const [state, setState] = useState(false);
   const [fData, setFdata] = useState();
-  const [data,setData] = useState()
+  const [data, setData] = useState();
   const handleClick = (id) => {
     setState(true);
     console.log(state, id);
@@ -27,21 +28,20 @@ const Stations = () => {
     setFdata(filterData);
   };
 
-  useEffect(()=>{
-     fetch(`http://localhost:5000/dashboard`)
-     .then(res=>res.json())
-     .then(result=>{
-      //  console.log(result)
-      setData(result.radios)
-     })
-  },[])
+  useEffect(() => {
+    fetch(`https://serene-wildwood-74216.herokuapp.com/dashboard`)
+      .then((res) => res.json())
+      .then((result) => {
+        //  console.log(result)
+        setData(result.radios);
+      });
+  }, []);
   return (
     <div className={station.station}>
-      <div className={card.maincard}>
+      {
+        !data?.length?   <Spinner animation="border" variant="light" />:  <div className={card.maincard}>
         <Header />
-         {
-           state && <PlayerComponent/>
-         }
+        {state && <PlayerComponent />}
         <div>
           {/* <div> */}
           {data?.map((data) => (
@@ -53,10 +53,10 @@ const Stations = () => {
               handleClick={handleClick}
             />
           ))}
-         <Footer state={state} fData={fData}/>
-        
+          <Footer state={state} fData={fData} />
         </div>
       </div>
+      }
     </div>
   );
 };

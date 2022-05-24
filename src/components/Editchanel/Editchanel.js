@@ -20,7 +20,10 @@ const Editchanel = () => {
   const onSubmit = (data) => {
     console.log(data);
     axios
-      .put(`http://localhost:5000/dashboard/edit/${id}`, data)
+      .put(
+        `https://serene-wildwood-74216.herokuapp.com/dashboard/edit/${id}`,
+        data
+      )
       .then((result) => {
         if (result.status === 200) {
           swal({

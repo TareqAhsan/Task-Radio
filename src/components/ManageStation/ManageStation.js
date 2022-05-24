@@ -2,27 +2,25 @@ import { faEdit, faTrash } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 const ManageStation = () => {
   const [manage, setManage] = useState();
   const navigate = useNavigate();
 
   const handleDelete = (id) => {
     axios
-      .delete(`http://localhost:5000/dashboard/${id}`)
+      .delete(`https://serene-wildwood-74216.herokuapp.com/dashboard/${id}`)
       .then((result) => console.log(result));
   };
 
-  const handleNavigate = id=>{
+  const handleNavigate = (id) => {
     navigate(`/dashboard/edit/${id}`, {
-        state:
-            manage
-          
-      });
-  }
+      state: manage,
+    });
+  };
 
   useEffect(() => {
-    fetch(`http://localhost:5000/dashboard`)
+    fetch(`https://serene-wildwood-74216.herokuapp.com/dashboard`)
       .then((res) => res.json())
       .then((result) => {
         setManage(result?.radios);
@@ -51,8 +49,8 @@ const ManageStation = () => {
                 {" "}
                 <FontAwesomeIcon icon={faTrash} className="mx-2" />
               </td>
-              <td onClick={()=>handleNavigate(data?._id)}>
-               <FontAwesomeIcon icon={faEdit} className="mx-2" />
+              <td onClick={() => handleNavigate(data?._id)}>
+                <FontAwesomeIcon icon={faEdit} className="mx-2" />
               </td>
             </tr>
           ))}

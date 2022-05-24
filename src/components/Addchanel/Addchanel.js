@@ -16,7 +16,7 @@ const Addchanel = () => {
     // data.email = user?.email;
     
     console.log(typeof data.chanelno);
-    fetch(`http://localhost:5000/dashboard/addstation`, {
+    fetch(`https://serene-wildwood-74216.herokuapp.com/dashboard/addstation`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
