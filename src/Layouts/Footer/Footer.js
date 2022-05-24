@@ -11,8 +11,8 @@ const Footer = ({ state, fData }) => {
       //     borderRadius: "0 0 25px 25px",
       //   }}
     >
-      {(state) && (
-        <div>
+      {state && (
+        <div className="d-flex align-items-center justify-content-center flex-column">
           <div className={styles.footer_heading}>CURRENTLY PLAYING</div>
           <h1 className={styles.footer_content}>{fData?.name}</h1>
         </div>

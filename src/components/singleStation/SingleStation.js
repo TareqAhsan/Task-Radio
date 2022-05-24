@@ -11,10 +11,10 @@ const SingleStation = ({ data, handleClick,state }) => {
         //     justifyContent: "space-between",
         //     padding: "14px",
         //   }}
-        onClick={() => handleClick(data.id)}
+        onClick={() => handleClick(data._id)}
       >
         <p>{data.name}</p>
-        <p>{data.point}</p>
+        <p>{data.chanelno}</p>
       </div>
       <hr />
     </>
