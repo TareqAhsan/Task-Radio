@@ -28,7 +28,7 @@ const Addchanel = () => {
         console.log(result.radio._id);
         if (result.radio._id) {
           swal({
-            title: "Station Added Successfully",
+            title: "Station Added Successfullyy",
             icon: "success",
             timer: 1500,
           });
